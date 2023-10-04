@@ -30,10 +30,12 @@ public class Drawing {
      */
     public void draw(String format, String filename) {
         // TODO: Do you notice any issues here?
+        // combine the logic of exception catch and siwtch case for jpeg and png
         if (format.equals("jpeg")) {
             try (Writer writer = new JPEGWriter(filename + ".jpeg")) {
                 for (Shape shape : this.shapes) {
                     // TODO: What is the issue of the behavior here?
+                    //Should move to shape and use toLines there
                     Line[] lines = shape.toLines();
                     shape.draw(writer, lines);
                 }
